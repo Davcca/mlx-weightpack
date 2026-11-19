@@ -71,6 +71,9 @@ class PackedLinear(nn.Module):
         return scales.view(self.meta_dtype), biases.view(self.meta_dtype)
 
     def as_linear(self, x):
+        input_dim = self.shape[1] * self.group_size
+        if x.ndim == 0 or x.shape[-1] != input_dim:
+            raise ValueError(f"Expected a last input dimension of {input_dim}, received {x.shape}")
         rows = math.prod(x.shape[:-1])
         n, k = self.shape[0], x.shape[-1]
         if self.bits == 4 and self.group_size == 64 and self.meta_dtype == x.dtype == mx.float16:
@@ -108,7 +111,10 @@ class PackedEmbedding(PackedLinear):
     def __call__(self, x):
         groups = self.shape[1]
         # Only fetch metadata for requested vocabulary rows.
-        rows = x.astype(mx.uint32)[..., None] * groups + mx.arange(groups, dtype=mx.uint32)
+        tokens = x.astype(mx.uint32)
+        if mx.issubdtype(x.dtype, mx.signedinteger):
+            tokens = mx.where(x < 0, tokens + self.shape[0], tokens)
+        rows = tokens[..., None] * groups + mx.arange(groups, dtype=mx.uint32)
         bit = (rows & 31) * self.width
         word = (rows >> 5) * self.width + (bit >> 5)
         shift = bit & 31

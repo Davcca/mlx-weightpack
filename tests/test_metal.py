@@ -40,6 +40,8 @@ class MetalTests(unittest.TestCase):
                 unpacked = layer.metadata()
                 self.assertSameBits(unpacked[0], s)
                 self.assertSameBits(unpacked[1], b)
+                with self.assertRaisesRegex(ValueError, "last input dimension"):
+                    layer(mx.ones((1, 128), dtype=dtype))
                 x = mx.ones((2, 3, 192), dtype=dtype)
                 self.assertSameBits(
                     layer(x),
@@ -53,7 +55,7 @@ class MetalTests(unittest.TestCase):
         for dtype in (mx.float16, mx.bfloat16):
             with self.subTest(dtype=dtype):
                 layer, w, s, b = self.make_layer(PackedEmbedding, dtype)
-                ids = mx.array([[63, 1], [0, 63]])
+                ids = mx.array([[63, 1, -1], [0, -2, -64]])
                 self.assertSameBits(
                     layer(ids), mx.dequantize(w[ids], s[ids], b[ids], group_size=64, bits=4)
                 )

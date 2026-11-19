@@ -1,6 +1,6 @@
 # Benchmarks
 
-These measurements use a 32-core M1 Max with 32 GB of unified memory, macOS 27.2.1, Python 3.12.10, MLX 0.32.2 and MLX-LM 0.31.3. The 27B checkpoint is the FP16, 4-bit MLX conversion by r3lax of DavidAU's Qwen 3.8 27B. It has 64 decoder layers and uses groups of 64 weights. [Pinned checkpoint](https://huggingface.co/r3lax/DavidAU-Qwen3.8-27B-TURBO-735-882-MTPLX-4bit-FP16/tree/773aee9b52f840f7337c77a2815ba764684a3bce)
+These measurements use a 32-core M1 Max with 32 GB of unified memory, macOS 27.2.1, Python 3.12.10, MLX 0.32.2 and MLX-LM 0.31.3. The 27B checkpoint is the FP16, 4-bit MLX conversion by r3lax of DavidAU's Qwen 3.8 27B. It has 64 decoder layers and uses groups of 64 weights. [Pinned checkpoint](https://huggingface.co/r3lax/DavidAU-Qwen3.8-27B-TURBO-735-882-MTPLX-4bit-FP16/tree/773aee9b52f840f7337c77a2815ba764684a3bce) · [Measured Weightpack revision](https://github.com/Davcca/mlx-weightpack/tree/4ce64ecf17bdbccf055c0aa61770ae8b10c25f64)
 
 ## Memory
 
