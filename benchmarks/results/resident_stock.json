@@ -1,0 +1,7 @@
+{
+  "mode": "stock",
+  "matrices": 498,
+  "gpu_arrays": 996,
+  "retained_tensor_bytes": 1680834560,
+  "active_mlx_bytes_above_start": 1680834560
+}

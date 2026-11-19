@@ -1,0 +1,48 @@
+{
+  "method": "Two independent executions of the same paired forward benchmark, one at width 1 and one at widths 4, 8 and 16. Values are sums of per-stage medians. The combined run with individual observations is cached_blocks.json.",
+  "timed_pairs_per_stage": 8,
+  "runs": [
+    {
+      "widths": [
+        1
+      ],
+      "prefix_tokens": 162,
+      "logits_sha256": {
+        "1": "b5959e3036e51cfc08d133fd1ec8d51270ece768fc69b71aca136fe9fdc46f2d"
+      },
+      "sum_of_stage_medians_ms": {
+        "1": {
+          "stock": 132.29120516916737,
+          "packed": 142.26937442435883
+        }
+      }
+    },
+    {
+      "widths": [
+        4,
+        8,
+        16
+      ],
+      "prefix_tokens": 162,
+      "logits_sha256": {
+        "4": "584d6022afdcaf0432e34cecd8bee969a3541377b357f7fb4736206305450b0e",
+        "8": "fb89cf3b0f1b5a890e9c3f533996224fb6d5955e3f2fab22b3d35535bf2ba700",
+        "16": "adbafc43eb10d2ff8c59e5c99320553c2afb695f0d03ec764ab7228047a8ecdc"
+      },
+      "sum_of_stage_medians_ms": {
+        "4": {
+          "stock": 169.90804055240005,
+          "packed": 180.40029070107266
+        },
+        "8": {
+          "stock": 326.90756194642745,
+          "packed": 248.42956149950624
+        },
+        "16": {
+          "stock": 367.74006616906263,
+          "packed": 313.20116462302394
+        }
+      }
+    }
+  ]
+}

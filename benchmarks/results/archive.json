@@ -1,0 +1,18 @@
+{
+  "pack": {
+    "matrices": 498,
+    "packed_matrices": 498,
+    "raw_matrices": 0,
+    "groups": 420208640,
+    "source_tensor_bytes": 15132802048,
+    "original_metadata_bytes": 1680834560,
+    "packed_metadata_bytes": 639417544,
+    "saved_bytes": 1041417016,
+    "file_bytes": 639682931
+  },
+  "verify": {
+    "verified_matrices": 498,
+    "verified_groups": 420208640,
+    "bit_identical": true
+  }
+}

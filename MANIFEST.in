@@ -1,0 +1,4 @@
+include THIRD_PARTY.md
+include uv.lock
+recursive-include docs *.md *.png
+recursive-include benchmarks *.md *.py *.json

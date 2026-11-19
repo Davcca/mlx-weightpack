@@ -1,0 +1,14 @@
+.venv/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.wpack
+*.safetensors
+/qwen-27b/
+/qwen-05b/
+/cached-run.json
